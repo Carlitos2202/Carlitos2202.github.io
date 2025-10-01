@@ -18,4 +18,5 @@ h3{
     text-decoration-color: indianred;
     text-decoration-style: solid;
     text-decoration-thickness: 10px;
+    border: 1px solid black
 }
