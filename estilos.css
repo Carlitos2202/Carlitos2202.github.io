@@ -33,3 +33,21 @@ h3{
     border-bottom: 1px solid black;
 
 }
+p.parrafosiniciales{
+    color: red;
+    word-spacing: 10px;
+    text-transform: uppercase;
+
+}
+p.parrafosnormales{
+    color: goldenrod;
+    text-indent: 20px;
+    letter-spacing: 10px;
+   
+}
+h3.seccionfutbol{
+    color: green;
+}
+h3.seccioncultura{
+    color: purple;
+}
