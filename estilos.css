@@ -6,6 +6,7 @@ font-size: x-large;
 background-color: #343434;
 width: 16.667%;
 margin: 0%;
+font-family: "Audiowide";
 }
 ol{
     list-style: none;
@@ -32,9 +33,10 @@ h1{
     font-size: 40px;
     color:rgb(0 255 136) ;
     padding: 0%;
+    font-family: "Tourney";
 }/*Este color es para links o cosas importantes */
 p{
-    color: rgb(0 255 136);
+    color: rgb(224 224 224);
 }
 div{
     color: rgb(224 224 224);
@@ -42,3 +44,4 @@ div{
 footer{
     color:  rgb(0 255 136);
 }
+
