@@ -24,6 +24,9 @@ margin: 0%;
 body{
 margin: 0%;
 background-color: rgb(35 35 35);
+/*display: flex;
+justify-content: center;
+align-items: center;*/
 }
 h1{
     text-align: center;
@@ -37,11 +40,23 @@ h1{
 }/*Este color es para links o cosas importantes */
 p{
     color: rgb(224 224 224);
+    font-family: "Roboto";
 }
 div{
     color: rgb(224 224 224);
+    background-color:#343434;
+    justify-items: center;
+    padding: 50px;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
 }/*Este es el color para el texto normal */
 footer{
     color:  rgb(0 255 136);
+    align-items: flex-end;
 }
-
+@media (max-width: 1250px){
+.barra{
+    display: none;
+}
+}
