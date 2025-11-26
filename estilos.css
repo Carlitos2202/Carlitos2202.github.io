@@ -36,6 +36,9 @@ p {
   font-family: "Roboto", sans-serif;
   padding: 10px;
 }
+#fecha{
+  color: rgb(0, 255, 136);
+}
 nav {
   margin: 0;
   padding: 0;
