@@ -82,10 +82,6 @@ li:hover a {
   color: #343434;
 }
 
-.menu-checkbox {
-  display: none;
-}
-
 .menu-toggle {
   display: none;
   background: none;
@@ -96,37 +92,15 @@ li:hover a {
   padding: 0.3rem 0.7rem;
   cursor: pointer;
   border-radius: 6px;
+  margin: 0.6rem auto 0;
   font-family: "Tourney", sans-serif;
   transition: background 0.2s, color 0.2s;
-  user-select: none;
-  flex: 0 0 auto;
-}
-
-.menu-toggle::before {
-  content: "\2630";
-}
-
-.menu-checkbox:checked ~ .menu-toggle::before {
-  content: "\2715";
 }
 
 .menu-toggle:hover,
-.menu-checkbox:checked ~ .menu-toggle {
+.menu-toggle.activo {
   background: rgb(0, 255, 136);
   color: #232323;
-}
-
-.menu-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 999;
-  cursor: pointer;
-}
-
-.menu-checkbox:checked ~ nav .menu-overlay {
-  display: block;
 }
 
 footer {
@@ -189,12 +163,40 @@ span {
 }
 
 @media (max-width: 1250px) {
+  ol.barra {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  li {
+    width: 100%;
+    font-size: large;
+  }
+}
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 28px;
+    padding: 0.75rem 0.5rem;
+  }
+
+  h2 {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.75rem;
+    margin: 1rem 0 0.75rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
 
   header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 0.75rem;
     padding: 0 1rem;
     background-color: rgb(35, 35, 35);
@@ -202,27 +204,28 @@ span {
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 24px;
     padding: 0.75rem 0;
-    text-align: left;
-    flex: 1 1 auto;
+    text-align: right;
+    flex: 0 0 auto;
     background-color: transparent;
   }
 
   .menu-toggle {
     display: block;
+    flex: 0 0 auto;
     margin: 0;
   }
 
   nav {
-    width: auto;
+    width: 100%;
   }
 
   ol.barra {
     display: flex;
     flex-direction: column;
     width: 75vw;
-    max-width: 280px;
+    max-width: 260px;
     position: fixed;
     top: 0;
     right: 0;
@@ -234,18 +237,15 @@ span {
     z-index: 1000;
     padding-top: 3.5rem;
     box-sizing: border-box;
-    justify-content: flex-start;
-    align-items: stretch;
   }
 
-  .menu-checkbox:checked ~ nav ol.barra {
+  ol.barra.abierto {
     transform: translateX(0);
   }
 
   li {
-    display: block;
     width: 100%;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     border-bottom: 1px solid rgba(0, 255, 136, 0.15);
   }
 
@@ -258,17 +258,6 @@ span {
     text-align: left;
   }
 
-  h2 {
-    font-size: 1rem;
-    padding: 0.6rem 0.75rem;
-    margin: 1rem 0 0.75rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-
   .cards-container {
     flex-direction: column;
     align-items: center;
@@ -278,12 +267,12 @@ span {
 
   .card {
     width: 100%;
-    max-width: 480px;
+    max-width: 420px;
     box-sizing: border-box;
   }
 
   .card img {
-    height: 200px;
+    height: 160px;
   }
 
   .card h3 {
@@ -291,12 +280,7 @@ span {
   }
 
   .card p {
-    font-size: 0.9rem;
-  }
-
-  .oferta-card {
-    width: 100%;
-    max-width: 480px;
+    font-size: 0.88rem;
   }
 
   span {
@@ -305,30 +289,8 @@ span {
   }
 
   footer {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     padding: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 0.9rem;
-  }
-
-  .card img {
-    height: 160px;
-  }
-
-  .card h3 {
-    font-size: 0.95rem;
-  }
-
-  .card p {
-    font-size: 0.85rem;
   }
 }
  .oferta-card {

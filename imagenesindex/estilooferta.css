@@ -1,0 +1,243 @@
+        .filtros {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem 0.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filtro-btn {
+            background: #343434;
+            color: rgb(0, 255, 136);
+            border: 1.5px solid rgb(0, 255, 136);
+            border-radius: 6px;
+            padding: 0.4rem 1.1rem;
+            font-family: "Audiowide", sans-serif;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .filtro-btn:hover,
+        .filtro-btn.active {
+            background: rgb(0, 255, 136);
+            color: #232323;
+        }
+
+        .busqueda-wrap {
+            display: flex;
+            justify-content: center;
+            padding: 0.75rem 1.5rem 1.25rem;
+        }
+
+        #busqueda {
+            width: 100%;
+            max-width: 460px;
+            padding: 0.55rem 1rem;
+            background: #343434;
+            border: 1.5px solid rgb(0, 255, 136);
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-family: "Roboto", sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        #busqueda::placeholder {
+            color: #7a7a7a;
+        }
+
+        #busqueda:focus {
+            border-color: #fff;
+        }
+
+        .oferta-card {
+            background: #343434;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            width: 260px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .oferta-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 255, 136, 0.18);
+        }
+
+        .oferta-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .oferta-card .info {
+            padding: 0.75rem 1rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .oferta-card h3 {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #fff;
+            font-family: "Audiowide", sans-serif;
+            line-height: 1.35;
+        }
+
+        .oferta-tienda {
+            font-size: 0.75rem;
+            color: #aaa;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .precios {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .precio-original {
+            font-size: 0.85rem;
+            color: #888;
+            text-decoration: line-through;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .precio-oferta {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: rgb(0, 255, 136);
+            font-family: "Tourney", sans-serif;
+        }
+
+        .precio-gratis {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffdd57;
+            font-family: "Tourney", sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .badge-descuento {
+            display: inline-block;
+            background: rgb(0, 255, 136);
+            color: #232323;
+            font-family: "Tourney", sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        .btn-oferta {
+            display: block;
+            margin: 0.6rem auto 0;
+            padding: 0.4rem 1.1rem;
+            background: transparent;
+            border: 1.5px solid rgb(0, 255, 136);
+            color: rgb(0, 255, 136);
+            font-family: "Audiowide", sans-serif;
+            font-size: 0.72rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-oferta:hover {
+            background: rgb(0, 255, 136);
+            color: #232323;
+        }
+
+        .estado-msg {
+            text-align: center;
+            color: rgb(0, 255, 136);
+            font-family: "Audiowide", sans-serif;
+            font-size: 1rem;
+            padding: 3rem 1rem;
+            width: 100%;
+        }
+
+        .estado-error {
+            color: #ff6b6b;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border: 3px solid #343434;
+            border-top: 3px solid rgb(0, 255, 136);
+            border-radius: 50%;
+            animation: spin 0.85s linear infinite;
+            margin-bottom: 0.8rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .contador {
+            text-align: center;
+            color: #aaa;
+            font-family: "Roboto", sans-serif;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .paginacion {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.5rem 0 0.5rem;
+        }
+
+        .pag-btn {
+            background: #343434;
+            color: rgb(0, 255, 136);
+            border: 1.5px solid rgb(0, 255, 136);
+            border-radius: 6px;
+            padding: 0.45rem 1.2rem;
+            font-family: "Audiowide", sans-serif;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .pag-btn:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .pag-btn:not(:disabled):hover {
+            background: rgb(0, 255, 136);
+            color: #232323;
+        }
+
+        .pag-info {
+            color: #aaa;
+            font-family: "Roboto", sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .ultima-actualizacion {
+            text-align: center;
+            color: #666;
+            font-size: 0.78rem;
+            font-family: "Roboto", sans-serif;
+            padding: 0.5rem 0 1rem;
+        }

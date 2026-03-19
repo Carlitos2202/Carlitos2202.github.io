@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Afterlife - Ofertas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="canonical" href="https://carlitos2202.github.io/Ofertas.html">
+    <link rel="icon" href="imagenesindex/android-chrome-192x192.png">
+    <meta name="description" content="Las mejores ofertas de videojuegos en tiempo real. Encuentra los mejores precios en tus juegos favoritos.">
+    <meta property="og:title" content="Afterlife - Ofertas">
+    <meta property="og:description" content="Ofertas de videojuegos en tiempo real">
+    <meta property="og:image" content="https://carlitos2202.github.io">
+    <link rel="stylesheet" href="estilooferta.css">
+</head>
+
+<body>
+    <header id="#top">
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+    <h1><a href="index.html" id="ink">AFTERLIFE</a></h1>
+    <label for="menu-toggle" class="menu-toggle" aria-label="Abrir menú"></label>
+    <nav>
+  <label for="menu-toggle" class="menu-overlay"></label>
+  <ol class="barra">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Juegos.html">Juegos</a></li>
+                <li><a href="Proximamente.html">Proximamente</a></li>
+                <li><a href="Noticias.html">Noticias</a></li>
+                <li><a href="Ofertas.html">Ofertas</a></li>
+                <li><a href="Comunidad.html">Comunidad</a></li>
+            </ol>
+</nav>
+    </header>
+
+    <main>
+        <h2>Ofertas</h2>
+
+        <div class="filtros" id="filtros-tienda">
+            <button class="filtro-btn active" data-store="">Todas las tiendas</button>
+            <button class="filtro-btn" data-store="1">Steam</button>
+            <button class="filtro-btn" data-store="25">Epic Games</button>
+            <button class="filtro-btn" data-store="7">GOG</button>
+            <button class="filtro-btn" data-store="23">GamersGate</button>
+            <button class="filtro-btn" data-store="11">Humble Store</button>
+        </div>
+
+        <div class="busqueda-wrap">
+            <input type="text" id="busqueda" placeholder="🔍  Buscar juego por nombre..." autocomplete="off">
+        </div>
+        <p class="ultima-actualizacion" id="ultima-act"></p>
+        <p class="contador" id="contador"></p>
+        <div class="cards-container" id="ofertas-grid">
+            <div class="estado-msg">
+                <div class="spinner"></div>
+                <br>Cargando ofertas...
+            </div>
+        </div>
+
+        <div class="paginacion" id="paginacion" style="display:none">
+            <button class="pag-btn" id="btn-ant" disabled>&#8592; Anterior</button>
+            <span class="pag-info" id="pag-info">Página 1</span>
+            <button class="pag-btn" id="btn-sig">Siguiente &#8594;</button>
+        </div>
+    </main>
+
+    <footer>&copy; Carlos Javier López Albarán 2026</footer>
+
+    <script>
+
+    const API_BASE   = 'https://www.cheapshark.com/api/1.0';
+    const PAGE_SIZE  = 12;
+
+    const TIENDAS = {
+        '1':'Steam','2':'GamersGate','3':'GreenManGaming','7':'GOG',
+        '8':'Origin','11':'Humble Store','13':'Uplay','15':'Fanatical',
+        '21':'WinGameStore','23':'GamersGate','25':'Epic Games',
+        '27':'IndieGala','28':'CDKeys','29':'2Game','31':'IndieGala Store',
+        '35':'GameBillet','37':'Voidu','38':'Epic Games Store',
+        '46':'GamesPlanet','49':'GreenManGaming'
+    };
+
+    let paginaActual  = 0;
+    let storeActual   = '';
+    let busquedaTimer = null;
+    let totalDeals    = 0;
+
+    const grid        = document.getElementById('ofertas-grid');
+    const contador    = document.getElementById('contador');
+    const ultimaAct   = document.getElementById('ultima-act');
+    const paginacion  = document.getElementById('paginacion');
+    const btnAnt      = document.getElementById('btn-ant');
+    const btnSig      = document.getElementById('btn-sig');
+    const pagInfo     = document.getElementById('pag-info');
+    const busqueda    = document.getElementById('busqueda');
+
+    function ahora() {
+        return new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function renderCargando() {
+        grid.innerHTML = `<div class="estado-msg"><div class="spinner"></div><br>Cargando ofertas...</div>`;
+        contador.textContent = '';
+        paginacion.style.display = 'none';
+    }
+
+    function renderError(msg) {
+        grid.innerHTML = `<div class="estado-msg estado-error">⚠️ ${msg}</div>`;
+        contador.textContent = '';
+        paginacion.style.display = 'none';
+    }
+
+    function nombreTienda(id) {
+        return TIENDAS[String(id)] || `Tienda ${id}`;
+    }
+
+    async function cargarOfertas() {
+        renderCargando();
+
+        const titulo = busqueda.value.trim();
+        let url = `${API_BASE}/deals?pageSize=${PAGE_SIZE}&pageNumber=${paginaActual}&sortBy=DealRating&desc=1&lowerPrice=0`;
+
+        if (storeActual) url += `&storeID=${storeActual}`;
+        if (titulo)      url += `&title=${encodeURIComponent(titulo)}`;
+
+        try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+            const total = parseInt(res.headers.get('X-Total-Count') || '0', 10);
+            totalDeals = total;
+
+            const deals = await res.json();
+
+            if (!deals.length) {
+                renderError('No se encontraron ofertas con los filtros actuales.');
+                return;
+            }
+
+            renderOfertas(deals);
+            actualizarPaginacion(total);
+            ultimaAct.textContent = `Última actualización: ${ahora()}`;
+            contador.textContent = total > 0
+                ? `Mostrando ${paginaActual * PAGE_SIZE + 1}–${Math.min((paginaActual + 1) * PAGE_SIZE, total)} de ${total.toLocaleString('es-ES')} ofertas`
+                : `${deals.length} resultado(s)`;
+
+        } catch (err) {
+            console.error(err);
+            renderError('No se pudo conectar con la API de ofertas. Inténtalo más tarde.');
+        }
+    }
+
+    function renderOfertas(deals) {
+        grid.innerHTML = '';
+
+        deals.forEach((deal, i) => {
+            const descuento  = Math.round(parseFloat(deal.savings));
+            const precioVenta = parseFloat(deal.salePrice);
+            const precioNormal = parseFloat(deal.normalPrice);
+            const esGratis   = precioVenta === 0;
+            const tienda     = nombreTienda(deal.storeID);
+            const enlace     = `https://www.cheapshark.com/redirect?dealID=${deal.dealID}`;
+
+            const card = document.createElement('div');
+            card.className = 'oferta-card';
+
+
+            card.innerHTML = `
+                <img src="${deal.thumb}" alt="${deal.title}" loading="lazy"
+                     onerror="this.src='https://via.placeholder.com/260x140/343434/00ff88?text=Sin+imagen'">
+                <div class="info">
+                    <h3>${deal.title}</h3>
+                    <span class="oferta-tienda">${tienda}</span>
+                    <div class="precios">
+                        ${precioNormal > precioVenta && !esGratis
+                            ? `<span class="precio-original">$${precioNormal}</span>` : ''}
+                        ${esGratis
+                            ? `<span class="precio-gratis">¡GRATIS!</span>`
+                            : `<span class="precio-oferta">$${precioVenta}</span>`}
+                        ${descuento > 0
+                            ? `<span class="badge-descuento">-${descuento}%</span>` : ''}
+                    </div>
+                    <a class="btn-oferta" href="${enlace}" target="_blank" rel="noopener">
+                        Ver oferta ↗
+                    </a>
+                </div>`;
+
+            grid.appendChild(card);
+        });
+    }
+
+    function actualizarPaginacion(total) {
+        const totalPags = Math.ceil(total / PAGE_SIZE);
+        if (totalPags <= 1) { paginacion.style.display = 'none'; return; }
+
+        paginacion.style.display = 'flex';
+        pagInfo.textContent = `Página ${paginaActual + 1} / ${totalPags}`;
+        btnAnt.disabled = paginaActual === 0;
+        btnSig.disabled = paginaActual >= totalPags - 1;
+    }
+
+    btnAnt.addEventListener('click', () => { paginaActual--; cargarOfertas(); window.scrollTo({top:0, behavior:'smooth'}); });
+    btnSig.addEventListener('click', () => { paginaActual++; cargarOfertas(); window.scrollTo({top:0, behavior:'smooth'}); });
+
+    document.getElementById('filtros-tienda').addEventListener('click', e => {
+        const btn = e.target.closest('.filtro-btn');
+        if (!btn) return;
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        storeActual  = btn.dataset.store;
+        paginaActual = 0;
+        cargarOfertas();
+    });
+
+    busqueda.addEventListener('input', () => {
+        clearTimeout(busquedaTimer);
+        busquedaTimer = setTimeout(() => { paginaActual = 0; cargarOfertas(); }, 600);
+    });
+
+    cargarOfertas();
+    </script>
+
+</body>
+</html>
