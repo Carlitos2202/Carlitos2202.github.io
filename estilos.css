@@ -454,4 +454,14 @@ span {
           transition: background 0.2s, color 0.2s;
         }
         .btn-ver-todas:hover { background: rgb(0,255,136); color: #232323; }
+
+
+        .skip-link{
+          position: absolute;
+          left: -1000px;
+          color: rgb(0, 255, 136);
+        }
+        .skip-link:focus{
+          position: static;
+        }
         

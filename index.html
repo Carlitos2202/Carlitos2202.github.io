@@ -82,22 +82,23 @@
 ]
 {
     "@context": "https://schema.org",
-    "@type": "BreadcumbList",
+    "@type": "BreadcrumbList",
     "itemListElement":[
-    "@type": "ListItem",
+    "@type": "ListItem",{
     "position": 1,
     "name": "AFTERLIFE"
-    "item":https://carlitos2202.github.io/index.html
+    "item":https://carlitos2202.github.io/index.html }
     ]
   }
 </script>
 
 <body>
+  <a class="skip-link" href="#contenido">Ir al contenido principal</a>
   <header id="#top">
     <input type="checkbox" id="menu-toggle" class="menu-checkbox">
     <h1><a href="index.html" id="ink">AFTERLIFE</a></h1>
     <label for="menu-toggle" class="menu-toggle" aria-label="Abrir menú"></label>
-    <nav>
+    <nav id="#contenido">
   <label for="menu-toggle" class="menu-overlay"></label>
   <ol class="barra">
         <li><a href="index.html">Inicio</a></li>
@@ -111,10 +112,10 @@
   </header>
   <main>
     <section>
-      <h2><a href="Juegos.html" id="link">Juegos</a></h2>
+      <h2><a href="Juegos.html" id="link" aria-label="Accede a la sección de videojuegos">Juegos</a></h2>
       <div class="cards-container">
         <div class="card">
-          <a href="Cyberpunk2077.html"><img src="imagenesindex/Cyberpunk2077.webp" alt="Cyberpunk 2077"></a>
+          <a href="Cyberpunk2077.html" aria-label="Accede a más contenido sobre Cyberpunk 2077"><img src="imagenesindex/Cyberpunk2077.webp" alt="Portada de Cyberpunk 2077"></a>
           <h3>Cyberpunk 2077</h3>
           <p>Entra en Night City y conviértete en V, un mercenario que lucha por sobrevivir después de robar un
             prototipo que le implanta a un fantasma digital en su cabeza. Tu misión: librarte del chip y decidir tu
@@ -122,7 +123,7 @@
           <p id="nota"><b>Metacritic: 86</b></p>
         </div>
         <div class="card">
-          <img src="imagenesindex/zelda1.webp" alt="The legend of Zelda Breath of the wild" loading="lazy">
+          <img src="imagenesindex/zelda1.webp" alt="Portada de The legend of Zelda Breath of the wild">
           <h3>TLZ: Breath of the wild</h3>
           <p>¡Breath of the Wild es una explosión de aventura pura! Un mundo abierto gigantesco que te invita a explorar
             sin límites, descubrir secretos a cada paso y liberar tu creatividad en cada batalla. Es mágico, emocionante
@@ -130,7 +131,7 @@
           <p id="nota"><b>Metacritic: 97</b></p>
         </div>
         <div class="card">
-          <a href=""><img src="imagenesindex/nms.webp" alt="No Man’s Sky"></a>
+          <img src="imagenesindex/nms.webp" alt="Portada de No Man’s Sky">
           <h3>No Man’s Sky</h3>
           <p>No Man’s Sky es una aventura de exploración y supervivencia ambientada en un universo prácticamente
             infinito. Viaja entre sistemas estelares generados proceduralmente, descubre planetas únicos llenos de vida,
@@ -138,10 +139,10 @@
           <p id="nota"><b>Metacritic: 71</b></p>
         </div>
       </div>
-      <h2><a href="Proximamente.html" id="link">Proximos lanzamientos</a></h2>
+      <h2><a href="Proximamente.html" id="link" aria-label="Accede a los próximos lanzamientos">Proximos lanzamientos</a></h2>
       <div class="cards-container">
         <div class="card">
-          <a href=""><img src="imagenesindex/gta6.webp" alt="Grand Theft Auto VI"></a>
+          <img src="imagenesindex/gta6.webp" alt="Portada de Grand Theft Auto VI" loading="lazy">
           <h3>GTA VI</h3>
           <p>¡GTA VI está a punto de llegar y va a sacudir por completo el mundo de los videojuegos! Con un mundo
             abierto más vivo que nunca, una historia poderosa y tecnología que parece de otra generación, Rockstar
@@ -150,7 +151,7 @@
           <p id="fecha"><b>19 de noviembre de 2026</b></p>
         </div>
         <div class="card">
-          <a href=""><img src="imagenesindex/phantom blade.webp" alt="Phantom Blade Zero" loading="lazy"></a>
+          <img src="imagenesindex/phantom blade.webp" alt="Portada de Phantom Blade Zero" loading="lazy">
           <h3>Phantom Blade Zero</h3>
           <p>Phantom Blade Zero nos sumerge en una oscura fantasía inspirada en el wuxia, donde la velocidad y la
             precisión lo son todo. Controlas a Soul, un asesino de élite acusado injustamente y condenado a morir en
@@ -160,7 +161,7 @@
           <p id="fecha"><b>8 de septiembre de 2026</b></p>
         </div>
         <div class="card">
-          <a href=""><img src="imagenesindex/pragmata.webp" alt="Pragmata" loading="lazy"></a>
+          <a href=""><img src="imagenesindex/pragmata.webp" alt="Portada de Pragmata" loading="lazy"></a>
           <h3>Pragmata</h3>
           <p>Pragmata, una misteriosa aventura de ciencia ficción ambientada en una estación lunar abandonada. Un
             astronauta y una enigmática niña androide deberán cooperar para sobrevivir en un entorno controlado por una
@@ -169,14 +170,14 @@
           <p id="fecha"><b>17 de abril de 2026</b></p>
         </div>
       </div>
-      <h2><a href="Noticias.html" id="link">Noticias</a></h2>
-      <h2><a href="Ofertas.html" id="link">Ofertas</a></h2>
+      <h2><a href="Noticias.html" id="link" aria-label="Accede a la sección de noticias sobre videojuegos">Noticias</a></h2>
+      <h2><a href="Ofertas.html" id="link" aria-label="Accede la sección de ofertas">Ofertas</a></h2>
       <div class="cards-container" id="preview-ofertas">
         <div class="prev-loading"><span class="spinner-prev"></span> Cargando ofertas...</div>
       </div>
 
       <div class="ver-todas-wrap">
-        <a href="Ofertas.html" class="btn-ver-todas">Ver todas las ofertas →</a>
+        <a href="Ofertas.html" class="btn-ver-todas" aria-label="Accede a ver todas las ofertas">Ver todas las ofertas →</a>
       </div>
 
       <script>
@@ -223,7 +224,7 @@
 
 </body>
 <footer>
-  &copy; Carlos Javier López Albaran 2026
+  &copy; Carlos Javier López Albarran 2026
 </footer>
 
 </html>
