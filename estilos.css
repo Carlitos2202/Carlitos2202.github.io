@@ -13,14 +13,17 @@ h1 {
   padding: 1rem 0;
   font-family: "Tourney", sans-serif;
 }
-#ink{
-    color:rgb(0, 255, 136);
-    text-decoration: none;
+
+#ink {
+  color: rgb(0, 255, 136);
+  text-decoration: none;
 }
-#link{
-  color:rgb(0, 255, 136);
-    text-decoration: none;
+
+#link {
+  color: rgb(0, 255, 136);
+  text-decoration: none;
 }
+
 h2 {
   text-align: center;
   color: rgb(0, 255, 136);
@@ -35,10 +38,12 @@ p {
   font-family: "Roboto", sans-serif;
   padding: 10px;
 }
-#fecha{
+
+#fecha {
   color: rgb(0, 255, 136);
 }
-#nota{
+
+#nota {
   color: rgb(0, 255, 136);
 }
 
@@ -106,12 +111,12 @@ li:hover a {
   content: "\2630";
 }
 
-.menu-checkbox:checked ~ .menu-toggle::before {
+.menu-checkbox:checked~.menu-toggle::before {
   content: "\2715";
 }
 
 .menu-toggle:hover,
-.menu-checkbox:checked ~ .menu-toggle {
+.menu-checkbox:checked~.menu-toggle {
   background: rgb(0, 255, 136);
   color: #232323;
 }
@@ -125,7 +130,7 @@ li:hover a {
   cursor: pointer;
 }
 
-.menu-checkbox:checked ~ nav .menu-overlay {
+.menu-checkbox:checked~nav .menu-overlay {
   display: block;
 }
 
@@ -238,7 +243,7 @@ span {
     align-items: stretch;
   }
 
-  .menu-checkbox:checked ~ nav ol.barra {
+  .menu-checkbox:checked~nav ol.barra {
     transform: translateX(0);
   }
 
@@ -331,137 +336,172 @@ span {
     font-size: 0.85rem;
   }
 }
- .oferta-card {
-          background: #343434;
-          border-radius: 12px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-          overflow: hidden;
-          width: 280px;
-          text-align: center;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          display: flex;
-          flex-direction: column;
-        }
-        .oferta-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 8px 24px rgba(0,255,136,0.18);
-        }
-        .oferta-card img {
-          width: 100%;
-          height: 150px;
-          object-fit: cover;
-        }
-        .oferta-card .info {
-          padding: 0.75rem 1rem 1rem;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          gap: 0.35rem;
-        }
-        .oferta-card h3 {
-          margin: 0;
-          font-size: 0.9rem;
-          color: #fff;
-          font-family: "Audiowide", sans-serif;
-          line-height: 1.35;
-        }
-        .oferta-tienda {
-          font-size: 0.73rem;
-          color: #aaa;
-          font-family: "Roboto", sans-serif;
-        }
-        .precios-prev {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 0.55rem;
-          flex-wrap: wrap;
-          margin-top: auto;
-        }
-        .precio-original-prev {
-          font-size: 0.82rem;
-          color: #888;
-          text-decoration: line-through;
-          font-family: "Roboto", sans-serif;
-        }
-        .precio-oferta-prev {
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: rgb(0,255,136);
-          font-family: "Tourney", sans-serif;
-        }
-        .precio-gratis-prev {
-          font-size: 1rem;
-          font-weight: 700;
-          color: #ffdd57;
-          font-family: "Tourney", sans-serif;
-        }
-        .badge-prev {
-          background: rgb(0,255,136);
-          color: #232323;
-          font-family: "Tourney", sans-serif;
-          font-weight: 700;
-          font-size: 0.78rem;
-          padding: 0.12rem 0.5rem;
-          border-radius: 4px;
-        }
-        .btn-prev {
-          display: block;
-          margin: 0.6rem auto 0;
-          padding: 0.38rem 1rem;
-          background: transparent;
-          border: 1.5px solid rgb(0,255,136);
-          color: rgb(0,255,136);
-          font-family: "Audiowide", sans-serif;
-          font-size: 0.7rem;
-          border-radius: 6px;
-          text-decoration: none;
-          transition: background 0.2s, color 0.2s;
-        }
-        .btn-prev:hover { background: rgb(0,255,136); color: #232323; }
-        .prev-loading {
-          text-align: center;
-          color: rgb(0,255,136);
-          font-family: "Audiowide", sans-serif;
-          font-size: 0.9rem;
-          padding: 2rem;
-          width: 100%;
-        }
-        .spinner-prev {
-          display: inline-block;
-          width: 28px; height: 28px;
-          border: 3px solid #343434;
-          border-top: 3px solid rgb(0,255,136);
-          border-radius: 50%;
-          animation: spin-p 0.85s linear infinite;
-          vertical-align: middle;
-          margin-right: 0.5rem;
-        }
-        @keyframes spin-p { to { transform: rotate(360deg); } }
-        .ver-todas-wrap {
-          text-align: center;
-          margin: 1.25rem 0 0.5rem;
-        }
-        .btn-ver-todas {
-          display: inline-block;
-          padding: 0.55rem 1.8rem;
-          border: 1.5px solid rgb(0,255,136);
-          color: rgb(0,255,136);
-          font-family: "Audiowide", sans-serif;
-          font-size: 0.82rem;
-          border-radius: 8px;
-          text-decoration: none;
-          transition: background 0.2s, color 0.2s;
-        }
-        .btn-ver-todas:hover { background: rgb(0,255,136); color: #232323; }
+
+.oferta-card {
+  background: #343434;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.oferta-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 255, 136, 0.18);
+}
+
+.oferta-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.oferta-card .info {
+  padding: 0.75rem 1rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.oferta-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #fff;
+  font-family: "Audiowide", sans-serif;
+  line-height: 1.35;
+}
+
+.oferta-tienda {
+  font-size: 0.73rem;
+  color: #aaa;
+  font-family: "Roboto", sans-serif;
+}
+
+.precios-prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.precio-original-prev {
+  font-size: 0.82rem;
+  color: #888;
+  text-decoration: line-through;
+  font-family: "Roboto", sans-serif;
+}
+
+.precio-oferta-prev {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgb(0, 255, 136);
+  font-family: "Tourney", sans-serif;
+}
+
+.precio-gratis-prev {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffdd57;
+  font-family: "Tourney", sans-serif;
+}
+
+.badge-prev {
+  background: rgb(0, 255, 136);
+  color: #232323;
+  font-family: "Tourney", sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+}
+
+.btn-prev {
+  display: block;
+  margin: 0.6rem auto 0;
+  padding: 0.38rem 1rem;
+  background: transparent;
+  border: 1.5px solid rgb(0, 255, 136);
+  color: rgb(0, 255, 136);
+  font-family: "Audiowide", sans-serif;
+  font-size: 0.7rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-prev:hover {
+  background: rgb(0, 255, 136);
+  color: #232323;
+}
+
+.prev-loading {
+  text-align: center;
+  color: rgb(0, 255, 136);
+  font-family: "Audiowide", sans-serif;
+  font-size: 0.9rem;
+  padding: 2rem;
+  width: 100%;
+}
+
+.spinner-prev {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #343434;
+  border-top: 3px solid rgb(0, 255, 136);
+  border-radius: 50%;
+  animation: spin-p 0.85s linear infinite;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin-p {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ver-todas-wrap {
+  text-align: center;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.btn-ver-todas {
+  display: inline-block;
+  padding: 0.55rem 1.8rem;
+  border: 1.5px solid rgb(0, 255, 136);
+  color: rgb(0, 255, 136);
+  font-family: "Audiowide", sans-serif;
+  font-size: 0.82rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-ver-todas:hover {
+  background: rgb(0, 255, 136);
+  color: #232323;
+}
 
 
-        .skip-link{
-          position: absolute;
-          left: -1000px;
-          color: rgb(0, 255, 136);
-        }
-        .skip-link:focus{
-          position: static;
-        }
-        
+.skip-link {
+  position: absolute;
+  left: -1000px;
+  color: rgb(0, 255, 136);
+}
+
+.skip-link:focus {
+  position: static;
+}
+
+*:focus {
+  outline: 3px solid yellow;
+  outline-offset: 4px;
+}
