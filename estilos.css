@@ -393,7 +393,7 @@ span {
 
 .precio-original-prev {
   font-size: 0.82rem;
-  color: #888;
+  color: yellow;
   text-decoration: line-through;
   font-family: "Roboto", sans-serif;
 }
@@ -502,6 +502,6 @@ span {
 }
 
 *:focus {
-  outline: 3px solid yellow;
+  outline: 3px solid rgb(0, 255, 136);
   outline-offset: 4px;
 }
